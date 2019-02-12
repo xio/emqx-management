@@ -50,6 +50,7 @@
 
 -export([add_app/2, del_app/2, list_apps/2, lookup_app/2, update_app/2]).
 
+add_app(_Bindings, Params) when is_map(Params) -> add_app(_Bindings, maps:to_list(Params));
 add_app(_Bindings, Params) ->
     AppId = get_value(<<"app_id">>, Params),
     Name = get_value(<<"name">>, Params),
@@ -83,6 +84,7 @@ lookup_app(#{appid := AppId}, _Params) ->
             emqx_mgmt:return({ok, []})
     end.
 
+update_app(_Bindings, Params) when is_map(Params) -> update_app(_Bindings, maps:to_list(Params));
 update_app(#{appid := AppId}, Params) ->
     Name = get_value(<<"name">>, Params),
     Desc = get_value(<<"desc">>, Params),
