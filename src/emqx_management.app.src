@@ -3,6 +3,6 @@
 	{vsn, "3.0"},
 	{modules, []},
 	{registered, [emqx_management_sup]},
-	{applications, [kernel, stdlib, minirest, clique, emqx]},
+	{applications, [kernel, stdlib, mnesia, minirest, clique, emqx]},
 	{mod, {emqx_mgmt_app, []}}
 ]}.
